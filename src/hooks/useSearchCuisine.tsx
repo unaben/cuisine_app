@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ICuisine } from "../models/cuisine";
 import { Params } from "react-router-dom";
+import { apiURL } from "../config";
 
 export const useSearchCuisine = (params: Params<string>) => {
   const [searchResult, setSearchResult] = useState<ICuisine[]>([]);
@@ -9,7 +10,7 @@ export const useSearchCuisine = (params: Params<string>) => {
       const itemNumToFetch = "12";
 
       const data = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}
+        `${apiURL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}
         &query=${searchTerm}&number=${itemNumToFetch}`
       );
       const recipes = await data.json();

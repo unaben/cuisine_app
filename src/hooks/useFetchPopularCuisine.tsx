@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IApiData } from "../models/apiData";
+import { apiURL } from "../config";
 
 export const useFetchPopularCuisine = () => {
   const [popularCusinie, setPopularCusinie] = useState<IApiData[]>([]);
@@ -12,7 +13,7 @@ export const useFetchPopularCuisine = () => {
         setPopularCusinie(JSON.parse(check));
       } else {
         const api = await fetch(
-          `${process.env.REACT_APP_BASE_URL}/random?apiKey=${process.env.REACT_APP_API_KEY}
+          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}
           &number=${numOfpopularCusinieToFetch}`
         );
         const data = await api.json();

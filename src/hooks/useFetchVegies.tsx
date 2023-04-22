@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IApiData } from "../models/apiData";
+import { apiURL } from "../config";
 
 export const useFetchVeggies = () => {
   const [veggie, setVeggie] = useState<IApiData[]>([]);
@@ -13,7 +14,7 @@ export const useFetchVeggies = () => {
         setVeggie(JSON.parse(check));
       } else {
         const api = await fetch(
-          `${process.env.REACT_APP_BASE_URL}/random?apiKey=${process.env.REACT_APP_API_KEY}
+          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}
           &number=${numOfVeggiesToFetch}&tags=vegetarian`
         );
         const data = await api.json();
