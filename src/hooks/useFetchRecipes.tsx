@@ -5,12 +5,11 @@ import { apiURL } from "../config";
 
 export const useFetchRecipes = (params: Params<string>) => {
   const [recipeDetails, setRecipeDetails] = useState<IApiData | undefined>();
-  const API_KEY = "7a206e94c48e4a7f9f9c5e857062e66c";
 
   const fetchRecipeDetails = async () => {
     try {
       const data = await fetch(
-        `${apiURL}/${params.name}/information?apiKey=${API_KEY}`
+        `${apiURL}/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
       );
       const detailData = await data.json();
 

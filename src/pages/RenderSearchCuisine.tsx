@@ -15,7 +15,7 @@ const RenderSearchCuisine = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {searchResult.map((result) => {
+      {searchResult?.map((result) => {
         return (
           <Card key={result.id}>
             <Link to={`/recipe/${result.id}`}>

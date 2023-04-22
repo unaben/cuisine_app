@@ -5,7 +5,6 @@ import { apiURL } from "../config";
 export const useFetchPopularCuisine = () => {
   const [popularCusinie, setPopularCusinie] = useState<IApiData[]>([]);
   const numOfpopularCusinieToFetch = "9";
-  const API_KEY = "7a206e94c48e4a7f9f9c5e857062e66c";
 
   const getPopularCusinie = async () => {
     try {
@@ -14,7 +13,7 @@ export const useFetchPopularCuisine = () => {
         setPopularCusinie(JSON.parse(check));
       } else {
         const api = await fetch(
-          `${apiURL}/random?apiKey=${API_KEY}
+          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}
           &number=${numOfpopularCusinieToFetch}`
         );
         const data = await api.json();

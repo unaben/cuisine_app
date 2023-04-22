@@ -6,6 +6,8 @@ import { useFetchCuisine } from "../hooks/useFetchCuisine";
 const Cuisine = () => {
   const params = useParams();
   const { cuisine } = useFetchCuisine(params);
+  console.log("cuisine:", cuisine);
+
   return (
     <Grid
       animate={{ opacity: 1 }}
@@ -13,7 +15,7 @@ const Cuisine = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {cuisine.map((item) => {
+      {cuisine?.map((item) => {
         return (
           <Card key={item.id}>
             <Link to={`/recipe/${item.id}`}>

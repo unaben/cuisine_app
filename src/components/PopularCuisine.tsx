@@ -26,7 +26,7 @@ const PopularCuisine = () => {
             gap: "2rem",
           }}
         >
-          {popularCusinie.map((recipe) => {
+          {popularCusinie?.map((recipe) => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
