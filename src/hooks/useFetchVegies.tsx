@@ -4,6 +4,7 @@ import { apiURL } from "../config";
 
 export const useFetchVeggies = () => {
   const [veggie, setVeggie] = useState<IApiData[]>([]);
+  const API_KEY = "7a206e94c48e4a7f9f9c5e857062e66c";
 
   const getVeggies = async () => {
     try {
@@ -14,7 +15,7 @@ export const useFetchVeggies = () => {
         setVeggie(JSON.parse(check));
       } else {
         const api = await fetch(
-          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}
+          `${apiURL}/random?apiKey=${API_KEY}
           &number=${numOfVeggiesToFetch}&tags=vegetarian`
         );
         const data = await api.json();

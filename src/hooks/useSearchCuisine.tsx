@@ -5,12 +5,14 @@ import { apiURL } from "../config";
 
 export const useSearchCuisine = (params: Params<string>) => {
   const [searchResult, setSearchResult] = useState<ICuisine[]>([]);
+  const API_KEY = "7a206e94c48e4a7f9f9c5e857062e66c";
+
   const searchCuisine = async (searchTerm: string) => {
     try {
       const itemNumToFetch = "12";
 
       const data = await fetch(
-        `${apiURL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}
+        `${apiURL}/complexSearch?apiKey=${API_KEY}
         &query=${searchTerm}&number=${itemNumToFetch}`
       );
       const recipes = await data.json();
