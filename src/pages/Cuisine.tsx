@@ -6,7 +6,6 @@ import { useFetchCuisine } from "../hooks/useFetchCuisine";
 const Cuisine = () => {
   const params = useParams();
   const { cuisine } = useFetchCuisine(params);
-  console.log("cuisine:", cuisine);
 
   return (
     <Grid
