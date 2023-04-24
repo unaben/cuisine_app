@@ -11,8 +11,7 @@ export const useFetchCuisine = (params: Params<string>) => {
       const numOfCuisineToFetch = "12";
 
       const data = await fetch(
-        `${apiURL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}
-        &cuisine=${type}&number=${numOfCuisineToFetch}`
+        `${apiURL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${type}&number=${numOfCuisineToFetch}`
       );
       const recipes = await data.json();
       setCuisine(recipes.results);

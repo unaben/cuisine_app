@@ -14,8 +14,7 @@ export const useFetchVeggies = () => {
         setVeggie(JSON.parse(check));
       } else {
         const api = await fetch(
-          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}
-          &number=${numOfVeggiesToFetch}&tags=vegetarian`
+          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}&number=${numOfVeggiesToFetch}&tags=vegetarian`
         );
         const data = await api.json();
         localStorage.setItem("veggie", JSON.stringify(data.recipes));

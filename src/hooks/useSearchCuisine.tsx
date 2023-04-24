@@ -11,8 +11,7 @@ export const useSearchCuisine = (params: Params<string>) => {
       const itemNumToFetch = "12";
 
       const data = await fetch(
-        `${apiURL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}
-        &query=${searchTerm}&number=${itemNumToFetch}`
+        `${apiURL}/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchTerm}&number=${itemNumToFetch}`
       );
       const recipes = await data.json();
       setSearchResult(recipes.results);

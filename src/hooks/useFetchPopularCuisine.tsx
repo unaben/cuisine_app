@@ -13,8 +13,7 @@ export const useFetchPopularCuisine = () => {
         setPopularCusinie(JSON.parse(check));
       } else {
         const api = await fetch(
-          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}
-          &number=${numOfpopularCusinieToFetch}`
+          `${apiURL}/random?apiKey=${process.env.REACT_APP_API_KEY}&number=${numOfpopularCusinieToFetch}`
         );
         const data = await api.json();
         localStorage.setItem("popular", JSON.stringify(data.recipes));
