@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { IApiData } from "../models/apiData";
-import { Params } from "react-router-dom";
 import { apiURL } from "../config";
 
-export const useFetchRecipes = (params: Params<string>) => {
+export const useFetchRecipes = (name: string) => {
   const [recipeDetails, setRecipeDetails] = useState<IApiData | undefined>();
 
   const fetchRecipeDetails = async () => {
     try {
       const data = await fetch(
-        `${apiURL}/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
+        `${apiURL}/${name}/information?apiKey=${process.env.REACT_APP_API_KEY}`
       );
       const detailData = await data.json();
 
@@ -22,7 +21,7 @@ export const useFetchRecipes = (params: Params<string>) => {
   useEffect(() => {
     fetchRecipeDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.name]);
+  }, [name]);
 
   return { recipeDetails };
 };

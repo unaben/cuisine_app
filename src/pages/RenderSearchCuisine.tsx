@@ -6,7 +6,7 @@ import { useSearchCuisine } from "../hooks/useSearchCuisine";
 
 const RenderSearchCuisine = () => {
   let params = useParams();
-  const { searchResult } = useSearchCuisine(params);
+  const { searchResult } = useSearchCuisine(params.search as string);
 
   return (
     <Grid

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { ICuisine } from "../models/cuisine";
-import { Params } from "react-router-dom";
 import { apiURL } from "../config";
 
-export const useSearchCuisine = (params: Params<string>) => {
+export const useSearchCuisine = (searchTerm: string) => {
   const [searchResult, setSearchResult] = useState<ICuisine[]>([]);
 
-  const searchCuisine = async (searchTerm: string) => {
+  const searchCuisine = async () => {
     try {
       const itemNumToFetch = "12";
 
@@ -21,8 +20,8 @@ export const useSearchCuisine = (params: Params<string>) => {
   };
 
   useEffect(() => {
-    searchCuisine(params.search as string);
-  }, [params.search]);
+    searchCuisine();
+  }, [searchTerm]);
 
   return { searchResult };
 };

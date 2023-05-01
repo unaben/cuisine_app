@@ -5,7 +5,7 @@ import { useFetchRecipes } from "../hooks/useFetchRecipes";
 
 const Recipe = () => {
   const params = useParams();
-  const {recipeDetails} = useFetchRecipes(params)
+  const {recipeDetails} = useFetchRecipes(params.name as string)
   const [activeTab, setActiveTab] = useState<string>("instructions");
 
   return (

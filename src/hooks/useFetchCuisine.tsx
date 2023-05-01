@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { ICuisine } from "../models/cuisine";
-import { Params } from "react-router-dom";
 import { apiURL } from "../config";
 
-export const useFetchCuisine = (params: Params<string>) => {
+export const useFetchCuisine = (type: string) => {
   const [cuisine, setCuisine] = useState<ICuisine[]>([]);
 
-  const getCuisine = async (type: string) => {
+  const getCuisine = async () => {
     try {
       const numOfCuisineToFetch = "12";
 
@@ -20,9 +19,9 @@ export const useFetchCuisine = (params: Params<string>) => {
     }
   };
 
-  useEffect(() => {
-    getCuisine(params.type as string);
-  }, [params.type]);
+  useEffect(() => {   
+    getCuisine();
+  }, [type]);
 
   return { cuisine };
 };
